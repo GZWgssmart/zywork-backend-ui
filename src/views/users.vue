@@ -14,16 +14,12 @@
           <el-input v-model="query.address" placeholder="地址"></el-input>
         </el-form-item>
         <el-form-item>
-          <el-date-picker
-            v-model="query.date"
-            type="date"
-            placeholder="选择日期">
-          </el-date-picker>
+          <el-date-picker v-model="query.date" type="date" placeholder="选择日期"></el-date-picker>
         </el-form-item>
         <el-button type="text" @click="toggleMoreSearch">{{ moreSearchText }}</el-button>
         <el-button type="primary" icon="fa fa-search" @click="search">查询</el-button>
         <el-button type="primary" icon="fa fa-search" @click="search">查询所有</el-button>
-        <el-button type="primary" icon="fa fa-plus">添加</el-button>
+        <el-button type="primary" icon="fa fa-plus" @click="showAdd">添加</el-button>
         <div v-if="moreSearch">
           <el-form-item>
             <el-select v-model="query.status" placeholder="选择状态">
@@ -85,13 +81,13 @@
         width="122">
         <template slot-scope="scope">
           <el-tooltip content="编辑" placement="top" effect="dark">
-            <el-button size="mini" icon="fa fa-pencil-square-o" @click="handleClick(scope.row)"></el-button>
+            <el-button size="mini" icon="fa fa-pencil-square-o" @click="showEdit(scope.row)"></el-button>
           </el-tooltip>
           <el-tooltip v-if="scope.row.status" content="冻结" placement="top" effect="dark">
-            <el-button size="mini" icon="fa fa-times"></el-button>
+            <el-button size="mini" icon="fa fa-times" @click="activeStatus(scope.row)"></el-button>
           </el-tooltip>
           <el-tooltip v-else content="激活" placement="top" effect="dark">
-            <el-button size="mini" icon="fa fa-check"></el-button>
+            <el-button size="mini" icon="fa fa-check" @click="activeStatus(scope.row)"></el-button>
           </el-tooltip>
         </template>
       </el-table-column>
@@ -107,6 +103,43 @@
         :total="200">
       </el-pagination>
     </div>
+
+    <!-- 添加dialog -->
+    <el-dialog title="添加用户" :visible.sync="addDialogVisible">
+      <el-form>
+        <el-form-item>
+          <el-input v-model="userData.name" placeholder="请输入姓名"></el-input>
+        </el-form-item>
+        <el-form-item>
+          <el-date-picker v-model="userData.date" type="date" placeholder="选择日期"></el-date-picker>
+        </el-form-item>
+        <el-form-item>
+          <el-input v-model="userData.address" placeholder="请输入地址"></el-input>
+        </el-form-item>
+      </el-form>
+      <div slot="footer" class="dialog-footer">
+        <el-button @click="cancelAdd">取 消</el-button>
+        <el-button type="primary" @click="doAdd">确 定</el-button>
+      </div>
+    </el-dialog>
+    <!-- 编辑dialog -->
+    <el-dialog title="编辑用户" :visible.sync="editDialogVisible">
+      <el-form>
+        <el-form-item>
+          <el-input v-model="userData.name" placeholder="请输入姓名"></el-input>
+        </el-form-item>
+        <el-form-item>
+          <el-date-picker v-model="userData.date" type="date" placeholder="选择日期"></el-date-picker>
+        </el-form-item>
+        <el-form-item>
+          <el-input v-model="userData.address" placeholder="请输入地址"></el-input>
+        </el-form-item>
+      </el-form>
+      <div slot="footer" class="dialog-footer">
+        <el-button @click="cancelEdit">取 消</el-button>
+        <el-button type="primary" @click="doEdit">确 定</el-button>
+      </div>
+    </el-dialog>
   </div>
 </template>
 
@@ -123,7 +156,12 @@
           address: '',
           status: ''
         },
-        currentPage: 1,
+        userData: {
+          name: '',
+          date: '',
+          address: '',
+          status: ''
+        },
         tableData: [{
           date: '2016-05-03',
           name: '王小虎',
@@ -200,10 +238,55 @@
           address: '上海市普陀区金沙江路 1518 弄',
           status: 1
         }],
-        multipleSelection: []
+        multipleSelection: [],
+        currentPage: 1,
+        addDialogVisible: false,
+        editDialogVisible: false
       }
     },
     methods: {
+      showAdd () {
+        this.addDialogVisible = true
+      },
+      doAdd () {
+        console.log('do add')
+        this.addDialogVisible = false
+      },
+      cancelAdd () {
+        this.addDialogVisible = false
+        this.userData = {
+          name: '',
+          date: '',
+          address: '',
+          status: ''
+        }
+      },
+      showEdit (row) {
+        this.editDialogVisible = true
+        this.userData = row
+      },
+      doEdit () {
+        console.log('do edit')
+        this.editDialogVisible = false
+      },
+      cancelEdit () {
+        this.editDialogVisible = false
+        this.userData = {
+          name: '',
+          date: '',
+          address: '',
+          status: ''
+        }
+      },
+      activeStatus (row) {
+        if (row.status === 1) {
+          console.log('to inactive')
+          row.status = 0
+        } else {
+          console.log('to active')
+          row.status = 1
+        }
+      },
       toggleSelection (rows) {
         if (rows) {
           rows.forEach(row => {
