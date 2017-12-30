@@ -93,9 +93,9 @@ export default {
   methods: {
     collapseMenu () {
       if (this.collapsed) {
-        this.systemTitle = 'zywork'
+        this.systemLogo = 'zywork'
       } else {
-        this.systemTitle = '&nbsp;'
+        this.systemLogo = '&nbsp;'
       }
       this.$emit('collapseChange')
     }
