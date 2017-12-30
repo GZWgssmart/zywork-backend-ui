@@ -14,7 +14,7 @@
           <el-input v-model="query.address" placeholder="地址"></el-input>
         </el-form-item>
         <el-form-item>
-          <el-date-picker v-model="query.date" type="date" placeholder="选择日期"></el-date-picker>
+          <el-date-picker v-model="query.date" type="date" placeholder="选择日期" value-format="yyyy-MM-dd"></el-date-picker>
         </el-form-item>
         <el-button type="text" @click="toggleMoreSearch">{{ moreSearchText }}</el-button>
         <el-button type="primary" icon="fa fa-search" @click="search">查询</el-button>
@@ -111,7 +111,7 @@
           <el-input v-model="userData.name" placeholder="请输入姓名"></el-input>
         </el-form-item>
         <el-form-item>
-          <el-date-picker v-model="userData.date" type="date" placeholder="选择日期"></el-date-picker>
+          <el-date-picker v-model="userData.date" type="date" placeholder="选择日期" value-format="yyyy-MM-dd"></el-date-picker>
         </el-form-item>
         <el-form-item>
           <el-input v-model="userData.address" placeholder="请输入地址"></el-input>
@@ -129,7 +129,7 @@
           <el-input v-model="userData.name" placeholder="请输入姓名"></el-input>
         </el-form-item>
         <el-form-item>
-          <el-date-picker v-model="userData.date" type="date" placeholder="选择日期"></el-date-picker>
+          <el-date-picker v-model="userData.date" type="date" placeholder="选择日期" value-format="yyyy-MM-dd"></el-date-picker>
         </el-form-item>
         <el-form-item>
           <el-input v-model="userData.address" placeholder="请输入地址"></el-input>
