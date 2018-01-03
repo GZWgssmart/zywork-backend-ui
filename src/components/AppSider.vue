@@ -4,23 +4,23 @@
     @open="handleOpen" @close="handleClose" :collapse="isCollapse">
       <el-menu-item index="1" @click="$router.push('/index')">
         <i class="fa fa-home"></i>
-        <span slot="title">首页</router-link></span>
+        <span slot="title">首页</span>
       </el-menu-item>
       <el-menu-item index="2" @click="$router.push('/users')">
         <i class="fa fa-user"></i>
-        <span slot="title">用户管理</router-link></span>
+        <span slot="title">用户管理</span>
       </el-menu-item>
       <el-menu-item index="3">
         <i class="fa fa-user-secret"></i>
-        <span slot="title">权限管理</router-link></span>
+        <span slot="title">权限管理</span>
       </el-menu-item>
       <el-menu-item index="4">
         <i class="fa fa-bell"></i>
-        <span slot="title">消息管理</router-link></span>
+        <span slot="title">消息管理</span>
       </el-menu-item>
       <el-menu-item index="5">
         <i class="fa fa-book"></i>
-        <span slot="title">内容管理</router-link></span>
+        <span slot="title">内容管理</span>
       </el-menu-item>
       <el-submenu index="6">
         <template slot="title">
@@ -42,19 +42,19 @@
       </el-submenu>
       <el-menu-item index="7">
         <i class="fa fa-suitcase"></i>
-        <span slot="title">流程管理</router-link></span>
+        <span slot="title">流程管理</span>
       </el-menu-item>
       <el-menu-item index="8">
         <i class="fa fa-calendar"></i>
-        <span slot="title">作业管理</router-link></span>
+        <span slot="title">作业管理</span>
       </el-menu-item>
       <el-menu-item index="9">
         <i class="fa fa-credit-card"></i>
-        <span slot="title">支付管理</router-link></span>
+        <span slot="title">支付管理</span>
       </el-menu-item>
       <el-menu-item index="10">
         <i class="fa fa-file"></i>
-        <span slot="title">日志管理</router-link></span>
+        <span slot="title">日志管理</span>
       </el-menu-item>
     </el-menu>
   </div>
