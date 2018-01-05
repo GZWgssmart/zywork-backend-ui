@@ -4,11 +4,11 @@
       <el-dropdown>
         <span class="el-dropdown-link">主题<i class="el-icon-arrow-down el-icon--right"></i></span>
         <el-dropdown-menu slot="dropdown">
-          <el-dropdown-item class="color-blue"><span @click="changeTheme(colorBlue)">默认</span></el-dropdown-item>
-          <el-dropdown-item class="color-green"><span @click="changeTheme(colorGreen)">绿色</span></el-dropdown-item>
-          <el-dropdown-item class="color-red"><span @click="changeTheme(colorRed)">红色</span></el-dropdown-item>
-          <el-dropdown-item class="color-dark"><span @click="changeTheme(colorDark)">黑色</span></el-dropdown-item>
-          <el-dropdown-item class="color-orange"><span @click="changeTheme(colorOrange)">橙色</span></el-dropdown-item>
+          <el-dropdown-item style="background-color: #409EFF; color: #fff;"><span @click="changeTheme(colorBlue)">默认</span></el-dropdown-item>
+          <el-dropdown-item style="background-color: #00CC99; color: #fff;"><span @click="changeTheme(colorGreen)">绿色</span></el-dropdown-item>
+          <el-dropdown-item style="background-color: #CC3399; color: #fff;"><span @click="changeTheme(colorRed)">红色</span></el-dropdown-item>
+          <el-dropdown-item style="background-color: #353635; color: #fff;"><span @click="changeTheme(colorDark)">黑色</span></el-dropdown-item>
+          <el-dropdown-item style="background-color: #FFCC00; color: #fff;"><span @click="changeTheme(colorOrange)">橙色</span></el-dropdown-item>
           <el-dropdown-item divided><span @click="showChooseColor">自定义</span></el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
@@ -26,12 +26,14 @@
 
 <script>
   import generateColors from '../utils/color'
+  import getFile from '../utils/file'
   export default {
     name: 'ThemePicker',
     data () {
       return {
         elementStyle: '',
         zyworkStyle: '',
+        linkStyle: '',
         currColor: '409EFF',
         colorBlue: '409EFF',
         colorDark: '353635',
@@ -45,18 +47,45 @@
     },
     methods: {
       getStyles () {
-        this.elementStyle = document.querySelectorAll('style')[0].innerText
-        this.zyworkStyle = document.querySelectorAll('style')[1].innerText
+        let styles = document.querySelectorAll('style')
+        if (styles && styles.length >= 2) {
+          this.elementStyle = styles[0].innerText
+          this.zyworkStyle = styles[1].innerText
+        } else {
+          getFile(document.querySelectorAll('link')[0].href).then(({ data }) => {
+            this.linkStyle = data
+          })
+        }
       },
-      writeNewStyle (currColor, newColor) {
-        const currColors = generateColors(currColor)
-        const newColors = generateColors(newColor)
-        currColors.forEach((oColor, index) => {
-          this.elementStyle = this.elementStyle.replace(new RegExp(oColor, 'ig'), newColors[index])
+      modifyStyles (currColor, newColor, currColors, newColors) {
+        currColors.forEach((currColor, index) => {
+          this.elementStyle = this.elementStyle.replace(new RegExp(currColor, 'ig'), newColors[index])
         })
         this.zyworkStyle = this.zyworkStyle.replace(new RegExp(currColor, 'ig'), newColor)
         document.querySelectorAll('style')[0].innerText = this.elementStyle
         document.querySelectorAll('style')[1].innerText = this.zyworkStyle
+      },
+      addStyleFromLink (currColors, newColors) {
+        currColors.forEach((currColor, index) => {
+          this.linkStyle = this.linkStyle.replace(new RegExp(currColor, 'ig'), newColors[index])
+        })
+        let styles = document.querySelectorAll('style')
+        if (styles && styles.length >= 1) {
+          document.head.lastChild.innerText = this.linkStyle
+        } else {
+          const style = document.createElement('style')
+          style.innerText = this.linkStyle
+          document.head.appendChild(style)
+        }
+      },
+      writeNewStyle (currColor, newColor) {
+        const currColors = generateColors(currColor)
+        const newColors = generateColors(newColor)
+        if (this.elementStyle !== '') {
+          this.modifyStyles(currColor, newColor, currColors, newColors)
+        } else if (this.linkStyle !== '') {
+          this.addStyleFromLink(currColors, newColors)
+        }
       },
       changeTheme (hexColor) {
         this.newColor = hexColor
@@ -94,31 +123,6 @@
   }
 
   #themes span {
-    color: #fff;
-  }
-
-  .color-blue {
-    background-color: #409EFF;
-    color: #fff;
-  }
-
-  .color-dark {
-    background-color: #353635;
-    color: #fff;
-  }
-
-  .color-green {
-    background-color: #00CC99;
-    color: #fff;
-  }
-
-  .color-orange {
-    background-color: #FFCC00;
-    color: #fff;
-  }
-
-  .color-red {
-    background-color: #CC3399;
     color: #fff;
   }
 </style>
