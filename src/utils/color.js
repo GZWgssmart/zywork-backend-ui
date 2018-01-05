@@ -27,12 +27,12 @@ const generateColors = color => {
     blue = blue.toString(16)
     return `#${red}${green}${blue}`
   }
-  const clusters = [color]
+  const colors = [color]
   for (let i = 0; i <= 9; i++) {
-    clusters.push(tintColor(color, Number((i / 10).toFixed(2))))
+    colors.push(tintColor(color, Number((i / 10).toFixed(2))))
   }
-  clusters.push(shadeColor(color, 0.1))
-  return clusters
+  colors.push(shadeColor(color, 0.1))
+  return colors
 }
 
 export default generateColors
