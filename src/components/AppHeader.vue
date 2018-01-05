@@ -1,28 +1,29 @@
 <template>
-  <div class="app-header">
+  <div>
     <div id="logo" :class="collapsed ? 'nav-menu-collapse' : 'nav-menu-extend'" v-html="systemLogo">
     </div>
     <i class="fa fa-navicon collapse-menu" @click="collapseMenu"></i>
     <div id="options">
       <div id="systems">
         <el-dropdown>
-          <span class="el-dropdown-link">
-            <i class="fa fa-diamond"></i>&nbsp;
-            选择系统<i class="el-icon-arrow-down el-icon--right"></i>
-          </span>
+            <span class="el-dropdown-link">
+              <i class="fa fa-diamond"></i>&nbsp;
+              选择系统<i class="el-icon-arrow-down el-icon--right"></i>
+            </span>
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item v-for="system in systems" :key="system.name">
-              <span><router-link :to="system.path">{{ system.name }}</router-link></span>
+              <span @click="$router.push(system.path)">{{ system.name }}</span>
             </el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
       </div>
+      <theme-picker style="float: left;"></theme-picker>
       <div id="user-info">
         <el-dropdown>
-          <span class="el-dropdown-link user-info-inner">
-            <img src='../../static/images/user.jpg'/>
-            <span>zywork.top</span>
-          </span>
+            <span class="el-dropdown-link user-info-inner">
+              <img src='../../static/images/user.jpg'/>
+              <span>zywork.top</span>
+            </span>
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item><i class="fa fa-info-circle"></i>&nbsp;我的信息</el-dropdown-item>
             <el-dropdown-item><i class="fa fa-cog"></i>&nbsp;设置</el-dropdown-item>
@@ -35,72 +36,76 @@
 </template>
 
 <script>
-export default {
-  name: 'AppHeader',
-  props: ['menuCollapsed'],
-  data () {
-    return {
-      systemLogo: 'zywork',
-      systems: [
-        {
-          name: '用户中心',
-          path: '/users'
-        },
-        {
-          name: '权限管理',
-          path: '/users'
-        },
-        {
-          name: '内容管理',
-          path: '/users'
-        },
-        {
-          name: '消息管理',
-          path: '/users'
-        },
-        {
-          name: '报表管理',
-          path: '/users'
-        },
-        {
-          name: '作业管理',
-          path: '/users'
-        },
-        {
-          name: '流程管理',
-          path: '/users'
-        },
-        {
-          name: '支付管理',
-          path: '/users'
-        },
-        {
-          name: '日志管理',
-          path: '/users'
-        },
-        {
-          name: '系统管理',
-          path: '/users'
-        }
-      ]
-    }
-  },
-  computed: {
-    collapsed () {
-      return this.menuCollapsed
-    }
-  },
-  methods: {
-    collapseMenu () {
-      if (this.collapsed) {
-        this.systemLogo = 'zywork'
-      } else {
-        this.systemLogo = '&nbsp;'
+  import ThemePicker from '@/components/ThemePicker'
+  export default {
+    components: {
+      ThemePicker
+    },
+    name: 'AppHeader',
+    props: ['menuCollapsed'],
+    data () {
+      return {
+        systemLogo: 'zywork',
+        systems: [
+          {
+            name: '用户中心',
+            path: '/users'
+          },
+          {
+            name: '权限管理',
+            path: '/users'
+          },
+          {
+            name: '内容管理',
+            path: '/users'
+          },
+          {
+            name: '消息管理',
+            path: '/users'
+          },
+          {
+            name: '报表管理',
+            path: '/users'
+          },
+          {
+            name: '作业管理',
+            path: '/users'
+          },
+          {
+            name: '流程管理',
+            path: '/users'
+          },
+          {
+            name: '支付管理',
+            path: '/users'
+          },
+          {
+            name: '日志管理',
+            path: '/users'
+          },
+          {
+            name: '系统管理',
+            path: '/users'
+          }
+        ]
       }
-      this.$emit('collapseChange')
+    },
+    computed: {
+      collapsed () {
+        return this.menuCollapsed
+      }
+    },
+    methods: {
+      collapseMenu () {
+        if (this.collapsed) {
+          this.systemLogo = 'zywork'
+        } else {
+          this.systemLogo = '&nbsp;'
+        }
+        this.$emit('collapseChange')
+      }
     }
   }
-}
 </script>
 <style scoped>
   #logo {

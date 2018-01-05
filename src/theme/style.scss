@@ -1,0 +1,76 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html, body, #app {
+  height: 100%;
+}
+
+table {
+  border-spacing: 0;
+}
+
+ul li {
+  list-style: none;
+}
+
+a:link, a:active, a:visited {
+  color: #000;
+  text-decoration: none;
+}
+
+.nav-menu-extend {
+  width: 180px;
+}
+
+.nav-menu-collapse {
+  width: 44px;
+}
+
+.page-title {
+  padding-top: 10px;
+  padding-left: 15px;
+}
+
+.toolbar {
+  margin-top: 10px;
+  margin-left: 15px;
+}
+
+.pager {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.el-header, .el-footer {
+  background-color: #409EFF;
+  color: #fff;
+  flex: 0 1 60px;
+  line-height: 60px;
+  padding: 0;
+}
+
+.el-footer {
+  text-align: center;
+}
+
+.el-main {
+  background-color: #fff;
+  color: #333;
+  padding: 0;
+}
+
+.el-menu, .app-sider {
+  background-color: #E9EEF3;
+}
+
+.el-menu-vertical-demo:not(.el-menu--collapse) {
+  width: 200px;
+  border-right: solid 0px #e6e6e6;
+}
+
+.el-menu--collapse {
+  border-right: solid 0px #e6e6e6;
+  z-index: 9999999;
+}

@@ -1,5 +1,5 @@
 <template>
-  <div class="app-footer">
+  <div>
     Copyright &copy; <a href="http://zywork.top">zywork.top</a>  2017
   </div>
 </template>

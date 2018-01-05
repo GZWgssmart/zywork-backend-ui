@@ -1,6 +1,6 @@
 <template>
   <div class="app-sider">
-    <el-menu class="el-menu-vertical-demo" background-color="#E9EEF3" text-color="#000" active-text-color="#409eff"
+    <el-menu class="el-menu-vertical-demo" text-color="#000"
     @open="handleOpen" @close="handleClose" :collapse="isCollapse">
       <el-menu-item index="1" @click="$router.push('/index')">
         <i class="fa fa-home"></i>
@@ -82,17 +82,4 @@
 </script>
 
 <style scoped>
-  .app-sider {
-    background-color: #E9EEF3;
-  }
-
-  .el-menu-vertical-demo:not(.el-menu--collapse) {
-    width: 200px;
-    border-right: solid 0px #e6e6e6;
-  }
-
-  .el-menu--collapse {
-    border-right: solid 0px #e6e6e6;
-    z-index: 9999999;
-  }
 </style>

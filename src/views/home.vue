@@ -2,7 +2,7 @@
   <div class="user-home">
     <el-container>
       <el-header>
-        <app-header :menuCollapsed="menuCollapsed" @collapseChange="changeCollapsed"/>
+      <app-header :menuCollapsed="menuCollapsed" @collapseChange="changeCollapsed"/>
       </el-header>
       <el-container class="contentContainer">
         <app-sider :menuCollapsed="menuCollapsed"/>
@@ -50,33 +50,16 @@
 </script>
 
 <style scoped>
+
   .user-home {
     display: flex;
     flex-direction: column;
     height: 100%;
   }
 
-  .el-header, .el-footer {
-    background-color: #409eff;
-    color: #fff;
-    flex: 0 1 60px;
-    line-height: 60px;
-    padding: 0;
-  }
-
-  .el-footer {
-    text-align: center;
-  }
-
   .contentContainer {
     display: flex;
     flex-direction: row;
     width: 100%;
-  }
-
-  .el-main {
-    background-color: #fff;
-    color: #333;
-    padding: 0;
   }
 </style>

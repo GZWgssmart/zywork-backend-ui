@@ -1,10 +1,14 @@
-# zywork-backend-ui
+# zywork-ui-backend
 
-> 基于vue.js和Element UI的zywork后台管理模板，作者：王振宇
+*作者：王振宇*
 
-![](https://github.com/GZWgssmart/zywork-backend-ui/blob/master/src/assets/zywork-backend-ui.png)
+基于Vue.js和Element UI的zywork后台管理模板
 
-## Build Setup
+支持动态切换任意颜色的主题
+
+![](https://github.com/GZWgssmart/zywork/blob/master/zywork-ui/zywork-ui-backend/src/assets/zywork-backend-ui.png)
+
+#### Build Setup
 
 ``` bash
 # install dependencies
@@ -28,5 +32,3 @@ npm run e2e
 # run all tests
 npm test
 ```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
