@@ -65,7 +65,7 @@
       </el-table-column>
       <el-table-column
         label="状态"
-        width="120">
+        width="100">
         <template slot-scope="scope">
           <el-tag v-if="scope.row.status" type="success">
             激活
@@ -78,7 +78,7 @@
       <el-table-column
         fixed="right"
         label="操作"
-        width="122">
+        width="123">
         <template slot-scope="scope">
           <el-tooltip content="编辑" placement="top" effect="dark">
             <el-button size="mini" icon="fa fa-pencil-square-o" @click="showEdit(scope.row)"></el-button>
