@@ -4,12 +4,12 @@
       <el-dropdown>
         <span class="el-dropdown-link">主题<i class="el-icon-arrow-down el-icon--right"></i></span>
         <el-dropdown-menu slot="dropdown">
-          <el-dropdown-item style="background-color: #409EFF; color: #fff;"><span @click="changeTheme(colorBlue)">默认</span></el-dropdown-item>
-          <el-dropdown-item style="background-color: #00CC99; color: #fff;"><span @click="changeTheme(colorGreen)">绿色</span></el-dropdown-item>
-          <el-dropdown-item style="background-color: #CC3399; color: #fff;"><span @click="changeTheme(colorRed)">红色</span></el-dropdown-item>
-          <el-dropdown-item style="background-color: #353635; color: #fff;"><span @click="changeTheme(colorDark)">黑色</span></el-dropdown-item>
-          <el-dropdown-item style="background-color: #FFCC00; color: #fff;"><span @click="changeTheme(colorOrange)">橙色</span></el-dropdown-item>
-          <el-dropdown-item divided><span @click="showChooseColor">自定义</span></el-dropdown-item>
+          <el-dropdown-item style="background-color: #409EFF; color: #fff;" @click.native="changeTheme(colorBlue)">蓝色</el-dropdown-item>
+          <el-dropdown-item style="background-color: #00CC99; color: #fff;" @click.native="changeTheme(colorGreen)">绿色</el-dropdown-item>
+          <el-dropdown-item style="background-color: #CC3399; color: #fff;" @click.native="changeTheme(colorRed)">红色</el-dropdown-item>
+          <el-dropdown-item style="background-color: #353635; color: #fff;" @click.native="changeTheme(colorDark)">黑色</el-dropdown-item>
+          <el-dropdown-item style="background-color: #FFCC00; color: #fff;" @click.native="changeTheme(colorOrange)">橙色</el-dropdown-item>
+          <el-dropdown-item divided @click.native="showChooseColor">自定义</el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
     </div>

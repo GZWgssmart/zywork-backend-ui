@@ -11,8 +11,8 @@
               选择系统<i class="el-icon-arrow-down el-icon--right"></i>
             </span>
           <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item v-for="system in systems" :key="system.name">
-              <span @click="$router.push(system.path)">{{ system.name }}</span>
+            <el-dropdown-item v-for="system in systems" :key="system.name" @click.native="$router.push(system.path)">
+              {{ system.name }}
             </el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
@@ -27,7 +27,7 @@
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item><i class="fa fa-info-circle"></i>&nbsp;我的信息</el-dropdown-item>
             <el-dropdown-item><i class="fa fa-cog"></i>&nbsp;设置</el-dropdown-item>
-            <el-dropdown-item divided><span @click="$router.push('/login')"><i class="fa fa-sign-out"></i>&nbsp;安全退出</span></el-dropdown-item>
+            <el-dropdown-item divided @click.native="$router.push('/login')"><i class="fa fa-sign-out"></i>&nbsp;安全退出</el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
       </div>
