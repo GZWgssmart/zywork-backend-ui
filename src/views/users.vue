@@ -28,7 +28,7 @@
             </el-select>
           </el-form-item>
           <el-form-item>
-            <city-picker v-model="query.city" placeholder="请选择城市" @change="chooseCity"></city-picker>
+            <city-picker v-model="query.city" placeholder="请选择城市" @change="chooseCity" change-on-select></city-picker>
           </el-form-item>
         </div>
       </el-form>

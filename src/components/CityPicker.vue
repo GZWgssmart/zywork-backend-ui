@@ -1,7 +1,7 @@
 <template>
   <div id="city-picker">
     <el-cascader v-model="currentValue" :options="addresses" @active-item-change="handleItemChange"
-                 @change="handleChange" :props="props" v-bind="$props"></el-cascader>
+                 @change="handleChange" :props="props" v-bind="$props" ref="cityPicker"></el-cascader>
   </div>
 </template>
 
@@ -11,7 +11,8 @@
     name: 'CityPicker',
     props: [
       'value',
-      'placeholder'
+      'placeholder',
+      'change-on-select'
     ],
     data () {
       return {
@@ -111,6 +112,9 @@
         }
       },
       handleChange (val) {
+        if (this.$refs.cityPicker.changeOnSelect) {
+          this.handleItemChange(val)
+        }
         this.$emit('changed', val)
       }
     }
