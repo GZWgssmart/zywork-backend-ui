@@ -20,12 +20,15 @@
         <el-button type="primary" icon="fa fa-search" @click="search">查询</el-button>
         <el-button type="primary" icon="fa fa-search" @click="search">查询所有</el-button>
         <el-button type="primary" icon="fa fa-plus" @click="showAdd">添加</el-button>
-        <div v-if="moreSearch">
+        <div v-show="moreSearch">
           <el-form-item>
             <el-select v-model="query.status" placeholder="选择状态">
               <el-option label="激活" value="1"></el-option>
               <el-option label="冻结" value="0"></el-option>
             </el-select>
+          </el-form-item>
+          <el-form-item>
+            <city-picker v-model="query.city" placeholder="请选择城市" @change="chooseCity"></city-picker>
           </el-form-item>
         </div>
       </el-form>
@@ -144,7 +147,11 @@
 </template>
 
 <script>
+  import CityPicker from '@/components/CityPicker'
   export default {
+    components: {
+      CityPicker
+    },
     name: 'users',
     data () {
       return {
@@ -154,7 +161,8 @@
           name: '',
           date: '',
           address: '',
-          status: ''
+          status: '',
+          city: []
         },
         userData: {
           name: '',
@@ -315,6 +323,9 @@
       },
       search () {
         console.log('开始搜索')
+      },
+      chooseCity (value) {
+        this.query.city = value
       }
     }
   }
