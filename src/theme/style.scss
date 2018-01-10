@@ -79,3 +79,11 @@ a:link, a:active, a:visited {
   border-right: solid 0px #e6e6e6;
   z-index: 9999999;
 }
+
+.toolbar-input, .toolbar-button {
+  float: left;
+}
+
+.toolbar-input {
+  margin-right: 15px;
+}

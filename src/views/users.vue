@@ -7,29 +7,33 @@
     </div>
     <div class="toolbar">
       <el-form :inline="true" class="demo-form-inline">
-        <el-form-item>
-          <el-input v-model="query.name" placeholder="姓名"></el-input>
-        </el-form-item>
-        <el-form-item>
-          <el-input v-model="query.address" placeholder="地址"></el-input>
-        </el-form-item>
-        <el-form-item>
-          <el-date-picker v-model="query.date" type="date" placeholder="选择日期" value-format="yyyy-MM-dd"></el-date-picker>
-        </el-form-item>
-        <el-button type="text" @click="toggleMoreSearch">{{ moreSearchText }}</el-button>
-        <el-button type="primary" icon="fa fa-search" @click="search">查询</el-button>
-        <el-button type="primary" icon="fa fa-search" @click="search">查询所有</el-button>
-        <el-button type="primary" icon="fa fa-plus" @click="showAdd">添加</el-button>
-        <div v-show="moreSearch">
+        <div class="toolbar-input">
           <el-form-item>
-            <el-select v-model="query.status" placeholder="选择状态">
-              <el-option label="激活" value="1"></el-option>
-              <el-option label="冻结" value="0"></el-option>
-            </el-select>
+            <el-input v-model="query.name" placeholder="姓名"></el-input>
           </el-form-item>
           <el-form-item>
-            <city-picker v-model="query.city" placeholder="请选择城市" @change="chooseCity" change-on-select></city-picker>
+            <el-input v-model="query.address" placeholder="地址"></el-input>
           </el-form-item>
+          <el-form-item>
+            <el-date-picker v-model="query.date" type="date" placeholder="选择日期" value-format="yyyy-MM-dd"></el-date-picker>
+          </el-form-item>
+          <el-button type="text" @click="toggleMoreSearch">{{ moreSearchText }}</el-button>
+          <div v-show="moreSearch">
+            <el-form-item>
+              <el-select v-model="query.status" placeholder="选择状态">
+                <el-option label="激活" value="1"></el-option>
+                <el-option label="冻结" value="0"></el-option>
+              </el-select>
+            </el-form-item>
+            <el-form-item>
+              <city-picker v-model="query.city" placeholder="请选择城市" @change="chooseCity" change-on-select></city-picker>
+            </el-form-item>
+          </div>
+        </div>
+        <div class="toolbar-button">
+          <el-button type="primary" icon="fa fa-search" @click="search">查询</el-button>
+          <el-button type="primary" icon="fa fa-search" @click="search">查询所有</el-button>
+          <el-button type="primary" icon="fa fa-plus" @click="showAdd">添加</el-button>
         </div>
       </el-form>
     </div>
@@ -332,5 +336,4 @@
 </script>
 
 <style scoped>
-
 </style>
