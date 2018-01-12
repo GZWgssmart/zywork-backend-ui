@@ -8,6 +8,8 @@
 
 ![](https://github.com/GZWgssmart/zywork/blob/master/zywork-ui/zywork-ui-backend/src/assets/zywork-backend-ui.png)
 
+![](https://github.com/GZWgssmart/zywork/blob/master/zywork-ui/zywork-ui-backend/src/assets/dynamic_demo.gif)
+
 #### Build Setup
 
 ``` bash
