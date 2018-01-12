@@ -30,6 +30,8 @@
     },
     created () {
       this.showProvinces()
+      this.showCityWhenCreated(this.currentValue)
+      this.showDistrictWhenCreated(this.currentValue)
     },
     computed: {
       currentValue: {
@@ -80,6 +82,18 @@
               label: districts[key]
             })
           }
+        }
+      },
+      showCityWhenCreated (val) {
+        let provinceName = val[0]
+        if (provinceName !== undefined) {
+          this.showCities(provinceName)
+        }
+      },
+      showDistrictWhenCreated (val) {
+        let cityName = val[1]
+        if (cityName !== undefined) {
+          this.showDistricts(cityName)
         }
       },
       /** 根据省名称获取vue绑定的addresses数据中被选中省的信息 */

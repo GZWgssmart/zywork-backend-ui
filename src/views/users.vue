@@ -166,7 +166,7 @@
           date: '',
           address: '',
           status: '',
-          city: []
+          city: ['江西省', '赣州市', '章贡区']
         },
         userData: {
           name: '',
