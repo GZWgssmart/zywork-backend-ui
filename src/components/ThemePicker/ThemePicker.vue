@@ -25,8 +25,8 @@
 </template>
 
 <script>
-  import generateColors from '../utils/Color'
-  import getFile from '../utils/File'
+  import generateColors from '../../utils/Color'
+  import getFile from '../../utils/File'
   export default {
     name: 'ThemePicker',
     data () {

@@ -19,9 +19,9 @@
 
 <script>
   import contentRouter from '../router'
-  import AppHeader from '@/components/AppHeader'
-  import AppSider from '@/components/AppSider'
-  import AppFooter from '@/components/AppFooter'
+  import AppHeader from '@/components/AppHeader/AppHeader'
+  import AppSider from '@/components/AppSider/AppSider'
+  import AppFooter from '@/components/AppFooter/AppFooter'
 
   export default {
     name: 'userhome',

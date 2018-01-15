@@ -82,4 +82,22 @@
 </script>
 
 <style scoped>
+  .app-sider, .el-menu {
+    background-color: #E9EEF3;
+  }
+
+  .app-sider {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  .el-menu-vertical-demo:not(.el-menu--collapse) {
+    width: 200px;
+    border-right: solid 0px #e6e6e6;
+  }
+
+  .el-menu--collapse {
+    border-right: solid 0px #e6e6e6;
+    z-index: 9999999;
+  }
 </style>

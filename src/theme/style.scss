@@ -20,29 +20,6 @@ a:link, a:active, a:visited {
   text-decoration: none;
 }
 
-.nav-menu-extend {
-  width: 180px;
-}
-
-.nav-menu-collapse {
-  width: 44px;
-}
-
-.page-title {
-  padding-top: 10px;
-  padding-left: 15px;
-}
-
-.toolbar {
-  margin-top: 10px;
-  margin-left: 15px;
-}
-
-.pager {
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
 .el-header, .el-footer {
   background-color: #409EFF;
   color: #fff;
@@ -61,23 +38,14 @@ a:link, a:active, a:visited {
   padding: 0;
 }
 
-.app-sider, .el-menu {
-  background-color: #E9EEF3;
+.page-title {
+  padding-top: 10px;
+  padding-left: 15px;
 }
 
-.app-sider {
-  overflow-x: hidden;
-  overflow-y: auto;
-}
-
-.el-menu-vertical-demo:not(.el-menu--collapse) {
-  width: 200px;
-  border-right: solid 0px #e6e6e6;
-}
-
-.el-menu--collapse {
-  border-right: solid 0px #e6e6e6;
-  z-index: 9999999;
+.toolbar {
+  margin-top: 10px;
+  margin-left: 15px;
 }
 
 .toolbar-input, .toolbar-button {
@@ -87,3 +55,10 @@ a:link, a:active, a:visited {
 .toolbar-input {
   margin-right: 15px;
 }
+
+.pager {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+

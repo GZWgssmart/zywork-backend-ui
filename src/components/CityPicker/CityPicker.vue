@@ -6,7 +6,7 @@
 </template>
 
 <script>
-  import CityData from '../utils/CityData'
+  import CityData from '../../utils/CityData'
   export default {
     name: 'CityPicker',
     props: [

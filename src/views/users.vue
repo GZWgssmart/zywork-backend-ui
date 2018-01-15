@@ -151,7 +151,7 @@
 </template>
 
 <script>
-  import CityPicker from '@/components/CityPicker'
+  import CityPicker from '@/components/CityPicker/CityPicker'
   export default {
     components: {
       CityPicker

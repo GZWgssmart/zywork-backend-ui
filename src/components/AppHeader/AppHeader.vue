@@ -21,7 +21,7 @@
       <div id="user-info">
         <el-dropdown>
             <span class="el-dropdown-link user-info-inner">
-              <img src='../../static/images/user.jpg'/>
+              <img src='../../../static/images/user.jpg'/>
               <span>zywork.top</span>
             </span>
           <el-dropdown-menu slot="dropdown">
@@ -36,7 +36,7 @@
 </template>
 
 <script>
-  import ThemePicker from '@/components/ThemePicker'
+  import ThemePicker from '@/components/ThemePicker/ThemePicker'
   export default {
     components: {
       ThemePicker
@@ -150,6 +150,14 @@
     margin-right: 10px;
     margin-top: 10px;
     float: left;
+  }
+
+  .nav-menu-extend {
+    width: 180px;
+  }
+
+  .nav-menu-collapse {
+    width: 44px;
   }
 
   .collapse-menu {
