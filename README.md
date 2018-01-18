@@ -34,3 +34,6 @@ npm run e2e
 # run all tests
 npm test
 ```
+
+#### 其他依赖
+npm install --save-dev node-sass
