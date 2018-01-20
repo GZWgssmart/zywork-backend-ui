@@ -35,6 +35,7 @@
           <el-button type="primary" icon="fa fa-search" @click="search">查询所有</el-button>
           <el-button type="primary" icon="fa fa-plus" @click="showAdd">添加</el-button>
         </div>
+        <p style="clear: both;"></p>
       </el-form>
     </div>
     <el-table

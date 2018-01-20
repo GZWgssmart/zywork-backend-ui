@@ -70,13 +70,27 @@
           this.linkStyle = this.linkStyle.replace(new RegExp(currColor, 'ig'), newColors[index])
         })
         let styles = document.querySelectorAll('style')
-        if (styles && styles.length >= 1) {
-          document.head.lastChild.innerText = this.linkStyle
+        if (styles && styles.length > 0) {
+          let theStyle
+          styles.forEach((style, index) => {
+            if (style.id === 'app-style') {
+              theStyle = style
+            }
+          })
+          if (theStyle) {
+            theStyle.innerText = this.linkStyle
+          } else {
+            this.createNewStyle()
+          }
         } else {
-          const style = document.createElement('style')
-          style.innerText = this.linkStyle
-          document.head.appendChild(style)
+          this.createNewStyle()
         }
+      },
+      createNewStyle () {
+        const style = document.createElement('style')
+        style.id = 'app-style'
+        style.innerText = this.linkStyle
+        document.head.appendChild(style)
       },
       writeNewStyle (currColor, newColor) {
         const currColors = generateColors(currColor)
